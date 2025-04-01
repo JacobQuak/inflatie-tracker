@@ -32,5 +32,5 @@ Deze GPT helpt inkopers automatisch de inflatie van producten van leveranciers t
 ---
 
 ## 📂 Structuur
-
-. ├── dataset/ # Bevat de CSV met inflatiegegevens per land & categorie │ └── CPI; bijdragen ...csv │ ├── zapier/ # Webhook-integratie met Zapier │ └── webhook_openapi.json # OpenAPI-specificatie voor JSON-acties naar webhook │ ├── instructions.md # Instructies voor hoe de GPT werkt (technisch concept) ├── README.md # Projectdocumentatie (je bekijkt het nu 😉) ├── LICENSE # MIT-licentie voor gebruik ├── .gitignore # Bestanden die Git moet negeren
+'''
+. ├── dataset/ # Bevat de CSV met inflatiegegevens per land & categorie │ └── CPI; bijdragen ...csv │ ├── zapier/ # Webhook-integratie met Zapier │ └── webhook_openapi.json # OpenAPI-specificatie voor JSON-acties naar webhook │ ├── instructions.md # Instructies voor hoe de GPT werkt (technisch concept) ├── README.md # Projectdocumentatie (je bekijkt het nu 😉) ├── LICENSE # MIT-licentie voor gebruik ├── .gitignore # Bestanden die Git moet negeren '''
