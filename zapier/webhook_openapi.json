@@ -1,0 +1,140 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Zapier Webhook Integration",
+    "description": "OpenAPI specification for sending structured data to Zapier webhooks.",
+    "version": "v1.2.1"
+  },
+  "servers": [
+    {
+      "url": "https://hooks.zapier.com"
+    }
+  ],
+  "paths": {
+    "/hooks/catch/22296654/2c5wukr/": {
+      "post": {
+        "operationId": "sendWebhookData",
+        "summary": "Send Data to Zapier Webhook",
+        "description": "This endpoint sends structured JSON data to the Zapier webhook for inflation tracking.",
+        "requestBody": {
+          "description": "Structured JSON data for processing",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebhookData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Data successfully received"
+          },
+          "400": {
+            "description": "Invalid request format"
+          }
+        }
+      }
+    },
+    "/hooks/catch/22296654/2c5wukr/": {
+      "post": {
+        "operationId": "sendProductInflationData",
+        "summary": "Send Product Inflation Data to Zapier Webhook",
+        "description": "This endpoint sends structured JSON data for product inflation analysis to the Zapier webhook.",
+        "requestBody": {
+          "description": "Structured JSON data for processing product inflation information",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductInflationData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Product inflation data successfully received"
+          },
+          "400": {
+            "description": "Invalid request format"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "WebhookData": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Full name of the recipient"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "Email address of the recipient"
+          },
+          "inflatie_percentage": {
+            "type": "number",
+            "description": "The inflation percentage assigned to the recipient"
+          },
+          "max_percentage": {
+            "type": "number",
+            "description": "Maximum allowed inflation percentage"
+          }
+        },
+        "required": [
+          "name",
+          "email",
+          "inflatie_percentage",
+          "max_percentage"
+        ]
+      },
+      "ProductInflationData": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Full name of the sender or recipient"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "Email address of the sender or recipient"
+          },
+          "producten": {
+            "type": "array",
+            "description": "A list of products with their inflation and PPI data",
+            "items": {
+              "type": "object",
+              "properties": {
+                "naam_product": {
+                  "type": "string",
+                  "description": "The name of the product"
+                },
+                "inflatie_percentage": {
+                  "type": "number",
+                  "description": "The inflation percentage of the product"
+                },
+                "PPI_product": {
+                  "type": "number",
+                  "description": "The Producer Price Index (PPI) for the product category"
+                }
+              },
+              "required": [
+                "naam_product",
+                "inflatie_percentage",
+                "PPI_product"
+              ]
+            }
+          }
+        },
+        "required": ["name", "email", "producten"]
+      }
+    }
+  }
+}
