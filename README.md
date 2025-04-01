@@ -31,4 +31,47 @@ Deze GPT helpt inkopers automatisch de inflatie van producten van leveranciers t
 
 ---
 
-<pre> ## 📁 Structuur ``` . ├── dataset/ # Bevat de CSV met inflatiegegevens per land & categorie │ └── CPI; bijdragen ...csv │ ├── zapier/ # Webhook-integratie met Zapier │ └── webhook_openapi.json # OpenAPI-specificatie voor JSON-acties naar webhook │ ├── instructions.md # Instructies voor hoe de GPT werkt (technisch concept) ├── README.md # Projectdocumentatie (je bekijkt het nu 😉) ├── LICENSE # MIT-licentie voor gebruik ├── .gitignore # Bestanden die Git moet negeren ``` </pre>
+## 📁 Structuur 
+Deze sectie beschrijft hoe je de Inflatie Tracker Simplified GPT kunt nabouwen en welke onderdelen je nodig hebt.
+
+📦 Benodigdheden
+Custom GPT via ChatGPT/Gizmo (OpenAI)
+Zapier Webhook URL voor meldingen
+Referentie-CSV met inflatiecijfers (bijv. CPI; bijdragen aan de jaarmutatie)
+PDF-documenten van leveranciers met inflatie-informatie
+(optioneel) Hosting van visuals of integratie met e-mailsysteem
+🧠 GPT Configuratie in OpenAI
+Naam: Inflatie Tracker Simplified
+Beschrijving: Verwerkt volledige datasets en analyseert productinflatie.
+Gedragscontext (Contextveld):
+Plak hier de volledige logica (zoals hierboven beschreven) die uitlegt hoe de GPT PDF's verwerkt, CSV-gegevens koppelt, inflatie vergelijkt, en Zapier activeert. Belangrijk om hierin ook de exacte regels en uitzonderingen toe te voegen.
+
+📑 Referentiebestand (CSV)
+Bestand met als naam bijv. CPI; bijdragen aan de jaarmutatie (%-punt).csv
+
+Opslaan als knowledge bestand in de GPT
+Kolommen moeten bevatten: productcategorie, land, en inflatie januari 2025
+Enkel dit bestand mag als bron voor inflatiepercentages worden gebruikt
+📨 Zapier Webhook Instellen
+Maak een Zap aan in Zapier
+Gebruik de Catch Hook trigger
+Webhook URL voeg je toe in de GPT-context of als plugin-koppeling
+https://hooks.zapier.com/hooks/catch/22296654/2c5wukr/
+Payload bevat:
+Naam leverancier
+E-mail
+Lijst met producten waarbij inflatie te hoog is
+Opgegeven inflatie & maximaal aanvaardbaar inflatiepercentage
+📄 Leveranciersdata (PDF)
+Bevat: productnamen, opgegeven inflatiepercentages, leverancier info
+Wordt geüpload door gebruiker in GPT interface
+GPT leest deze automatisch uit en vergelijkt met de CSV
+📊 Grafiek Output
+Wanneer één of meerdere producten over de limiet gaan:
+
+GPT genereert automatisch een grafiek
+Titel: "Inflatievergelijking per product – [Naam leverancier]"
+Groepering per product
+Twee staven per product: Leverancier vs. Maximaal aanvaardbaar
+Emoji’s en labels bij sterke overschrijding
+Laat me weten of je dit als markdown wil ontvangen of dat ik het direct in je README.md bestand mag formatteren.
