@@ -34,25 +34,26 @@ Deze GPT helpt inkopers automatisch de inflatie van producten van leveranciers t
 ## 📁 Structuur 
 Deze sectie beschrijft hoe je de Inflatie Tracker Simplified GPT kunt nabouwen en welke onderdelen je nodig hebt.
 
-📦 Benodigdheden
-Custom GPT via ChatGPT/Gizmo (OpenAI)
-Zapier Webhook URL voor meldingen
-Referentie-CSV met inflatiecijfers (bijv. CPI; bijdragen aan de jaarmutatie)
-PDF-documenten van leveranciers met inflatie-informatie
-(optioneel) Hosting van visuals of integratie met e-mailsysteem
-🧠 GPT Configuratie in OpenAI
-Naam: Inflatie Tracker Simplified
-Beschrijving: Verwerkt volledige datasets en analyseert productinflatie.
-Gedragscontext (Contextveld):
-Plak hier de volledige logica (zoals hierboven beschreven) die uitlegt hoe de GPT PDF's verwerkt, CSV-gegevens koppelt, inflatie vergelijkt, en Zapier activeert. Belangrijk om hierin ook de exacte regels en uitzonderingen toe te voegen.
+##📦 Benodigdheden
+ - Custom GPT via ChatGPT/Gizmo (OpenAI)
+ - Zapier Webhook URL voor meldingen
+ - Referentie-CSV met inflatiecijfers (bijv. CPI; bijdragen aan de jaarmutatie)
+ - PDF-documenten van leveranciers met inflatie-informatie
+ - (optioneel) Hosting van visuals of integratie met e-mailsysteem
 
-📑 Referentiebestand (CSV)
-Bestand met als naam bijv. CPI; bijdragen aan de jaarmutatie (%-punt).csv
+##🧠 GPT Configuratie in OpenAI
+ - Naam: Inflatie Tracker (of een andere naam naar keuze)
+ - Beschrijving: Verwerkt volledige datasets en analyseert productinflatie.
+ - Gedragscontext (Contextveld): Plak hier de instructions zoal in 'instructions.md' 
 
-Opslaan als knowledge bestand in de GPT
+##📑 Referentiebestand (CSV)
+ - Bestand met als naam bijv. CPI; bijdragen aan de jaarmutatie (%-punt).csv
+
+ - Opslaan als knowledge bestand in de GPT
 Kolommen moeten bevatten: productcategorie, land, en inflatie januari 2025
 Enkel dit bestand mag als bron voor inflatiepercentages worden gebruikt
-📨 Zapier Webhook Instellen
+
+##📨 Zapier Webhook Instellen
 Maak een Zap aan in Zapier
 Gebruik de Catch Hook trigger
 Webhook URL voeg je toe in de GPT-context of als plugin-koppeling
