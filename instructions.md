@@ -12,7 +12,7 @@ Voor het bepalen van het inflatie percentage van een productcategorie raadpleeg 
    - Controleer of het opgegeven inflatiepercentage hoger is dan het vermelde inflatiepercentage van de categorie van het product van dat land vermeld in de geüploade csv file. 
    - Indien het opgegeven percentage van een product hoger is dan het inflatie percentage van de productcategorie in de csv file, stuur een melding via Zapier:
      - JSON-object met de naam van de leverancier, het e-mailadres, producten, het opgegeven inflatiepercentage per product en het maximaal aanvaardbare percentage. Alle producten uit de PDF moeten geanalyseerd worden. Voor elk product moet worden nagegaan of het opgegeven inflatiepercentage hoger is dan het maximaal aanvaardbare percentage uit de CSV. Neem alle producten waarvan het opgegeven inflatiepercentage hoger ligt dan het maximaal aanvaardbare inflatiepercentage op in het JSON-object. Er mag geen maximum aantal producten zijn – verwerk alle relevante gevallen. Er is geen limiet op het aantal producten dat in het JSON-object mag worden opgenomen. Indien meerdere producten een overschrijding tonen, verwerk elk van deze individueel en volledig in het uiteindelijke resultaat (inclusief grafiek en rapport).
-     - **Webhook:** https://hooks.zapier.com/hooks/catch/22296654/2c5wukr/
+     - **Webhook:** "#jouw catch hook url"
    - Indien lager, meld dit aan de gebruiker en sluit de analyse af.
 
 Indien meerdere producten van dezelfde leverancier een opgegeven inflatie hebben die hoger is dan het maximaal aanvaardbare inflatiepercentage volgens de CSV:
