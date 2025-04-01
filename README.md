@@ -30,53 +30,47 @@ Deze GPT helpt inkopers automatisch de inflatie van producten van leveranciers t
    - Voegt analyse toe aan e-mail
 
 ---
+## 📁 Structuur
 
-## 📁 Structuur 
-Deze sectie beschrijft hoe je de Inflatie Tracker Simplified GPT kunt nabouwen en welke onderdelen je nodig hebt.
+Deze sectie beschrijft hoe je de Inflatie Tracker GPT kunt nabouwen en welke onderdelen je nodig hebt.
 
--- 
+---
 
-##📦 Benodigdheden
- - Custom GPT via ChatGPT/Gizmo (OpenAI)
- - Zapier Webhook URL voor meldingen
- - Referentie-CSV met inflatiecijfers (bijv. CPI; bijdragen aan de jaarmutatie)
- - PDF-documenten van leveranciers met inflatie-informatie
- - (optioneel) Hosting van visuals of integratie met e-mailsysteem
+## 📦 Benodigdheden
 
---
+- ✅ Custom GPT via ChatGPT/Gizmo (OpenAI)
+- ✅ Zapier Webhook URL voor meldingen
+- ✅ Referentie-CSV met inflatiecijfers (bijv. *CPI; bijdragen aan de jaarmutatie*)
+- ✅ PDF-documenten van leveranciers met inflatie-informatie
+- 🟡 (Optioneel) Hosting van visuals of integratie met e-mailsysteem
 
-##🧠 GPT Configuratie in OpenAI
- - Naam: Inflatie Tracker (of een andere naam naar keuze)
- - Beschrijving: Verwerkt volledige datasets en analyseert productinflatie.
- - Gedragscontext (Contextveld): Plak hier de instructions zoal in 'instructions.md' 
+---
 
-##📑 Referentiebestand (CSV)
- - Bestand met als naam bijv. CPI; bijdragen aan de jaarmutatie (%-punt).csv
+## 🧠 GPT Configuratie in OpenAI
 
- - Opslaan als knowledge bestand in de GPT
-Kolommen moeten bevatten: productcategorie, land, en inflatie januari 2025
-Enkel dit bestand mag als bron voor inflatiepercentages worden gebruikt
+- **Naam**: Inflatie Tracker (of een andere naam naar keuze)
+- **Beschrijving**: Verwerkt volledige datasets en analyseert productinflatie.
+- **Gedragscontext (Contextveld)**: Plak hier de volledige instructies zoals gedefinieerd in `instructions.md`
 
-##📨 Zapier Webhook Instellen
-Maak een Zap aan in Zapier
-Gebruik de Catch Hook trigger
-Webhook URL voeg je toe in de GPT-context of als plugin-koppeling
-https://hooks.zapier.com/hooks/catch/22296654/2c5wukr/
-Payload bevat:
-Naam leverancier
-E-mail
-Lijst met producten waarbij inflatie te hoog is
-Opgegeven inflatie & maximaal aanvaardbaar inflatiepercentage
-📄 Leveranciersdata (PDF)
-Bevat: productnamen, opgegeven inflatiepercentages, leverancier info
-Wordt geüpload door gebruiker in GPT interface
-GPT leest deze automatisch uit en vergelijkt met de CSV
-📊 Grafiek Output
-Wanneer één of meerdere producten over de limiet gaan:
+---
 
-GPT genereert automatisch een grafiek
-Titel: "Inflatievergelijking per product – [Naam leverancier]"
-Groepering per product
-Twee staven per product: Leverancier vs. Maximaal aanvaardbaar
-Emoji’s en labels bij sterke overschrijding
-Laat me weten of je dit als markdown wil ontvangen of dat ik het direct in je README.md bestand mag formatteren.
+## 📑 Referentiebestand (CSV)
+
+- Bestandsnaam: `CPI; bijdragen aan de jaarmutatie (%-punt).csv`
+- Locatie: Toevoegen als knowledge bestand in je GPT (of in de repo onder `/dataset`)
+- **Vereiste kolommen**:
+  - `productcategorie`
+  - `land`
+  - `inflatie januari 2025`
+- 🔒 Enkel dit bestand mag als bron gebruikt worden voor inflatiepercentages
+
+---
+
+## 📨 Zapier Webhook Instellen
+
+1. Maak een nieuwe Zap aan in Zapier
+2. Kies trigger: **Catch Hook**
+3. Gebruik de webhook URL die de trigger voor je gecreëerd heeft. Voeg deze url ook toe aan de handeling waarvan het schema in 'webhook_openapi.json' staat
+4. Bouw de zap na zoals in 'Inflatie tracker | Zapier.png'
+   
+
