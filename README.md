@@ -18,7 +18,7 @@ Deze GPT helpt inkopers automatisch de inflatie van producten van leveranciers t
 
 ## 🛠️ Werkwijze
 
-1. Leverancier stuurt PDF met inflatie-informatie
+1. Leverancier stuurt PDF met inflatie-informatie (voorbeeld staat in de dataset onder `Indexatiebrief voorbeeld.docx`
 2. GPT:
    - Leest PDF automatisch uit
    - Matcht producten met categorieën uit `CPI; bijdragen aan de jaarmutatie (%-punt).csv`
@@ -38,7 +38,7 @@ Deze sectie beschrijft hoe je de Inflatie Tracker GPT kunt nabouwen en welke ond
 
 ## 📦 Benodigdheden
 
-- ✅ Custom GPT via ChatGPT/Gizmo (OpenAI)
+- ✅ Custom GPT via ChatGPT(OpenAI)
 - ✅ Zapier Webhook URL voor meldingen
 - ✅ Referentie-CSV met inflatiecijfers (bijv. *CPI; bijdragen aan de jaarmutatie*)
 - ✅ PDF-documenten van leveranciers met inflatie-informatie
@@ -62,7 +62,7 @@ Deze sectie beschrijft hoe je de Inflatie Tracker GPT kunt nabouwen en welke ond
   - `productcategorie`
   - `land`
   - `inflatie januari 2025`
-- 🔒 Enkel dit bestand mag als bron gebruikt worden voor inflatiepercentages
+- 🔒 Enkel dit bestand mag als bron gebruikt worden voor inflatiepercentages in dit geval volgens de instellingen
 
 ---
 
